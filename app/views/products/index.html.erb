@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+    <div class="card card-dark m-2" style="width: 1250px;">
+        <div class="card-header text-bg-dark">
+            <div class="row">
+                <div class="col align-self-center"><h3>Produtos:</h2></div>
+                    <div class="col d-flex justify-content-end">
+                        <span><div class="m-1"><%= link_to "Cadastrar Produto", new_product_path, class:"btn btn-success" %></div></span>
+                        <span class="d-flex justify-content-end"><div class="m-1"><%= link_to "Voltar", root_path, class:"btn btn-primary" %></div></span>
+                    </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <% @products.each do |product| %>
+                <div class="col">
+                    <div class="card" style="width: 16rem; max-height: 350px;">
+                        <%= image_tag("imagemração.jpg", class: "rounded align-self-center", height: 150, width: 150) %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= product.name %></h5>
+                            <p class="card-text">
+                                <div class="col">
+                                    <span>Quantidade: </span><%= product.quantity %>
+                                </div>
+                                <div class="col">
+                                    <span>Preço: R$</span><%= product.sale_price %>
+                                </div>
+                            </p>
+                        </div>
+                        <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+                            <div class="row d-flex justify-content-end">
+                                <div class="m-1">
+                                    <%= link_to "Editar Estoque", edit_product_path(product.id), class:"btn btn-primary" %>
+                                    <%= link_to "Deletar", product_path(product.id), data:{turbo_method: :delete,
+                                                        turbo_confirm: "Tem Certeza?" }, class:"btn btn-danger" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+        </div>
+    </div>
+</div>

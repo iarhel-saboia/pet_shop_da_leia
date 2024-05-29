@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+    <div class="card m-2 card-dark" style="width: 1250px;">
+        <div class="card-header">
+            <h3>Dados Pessoais:</h2>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col">
+                    <span>Nome: </span><%= @animal.name %>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <span>Idade: </span><%= @animal.age %>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <span>Raça: </span><%= @animal.breed %>
+                </div>
+                <div class="col">
+                    <span>Vacinas: </span><%= @animal.vaccines %>
+                </div>
+                <div class="col">
+                    <span>Enfermidades: </span><%= @animal.deseases %>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+            <div class="col d-flex justify-content-end">
+            <div class="m-1"><%= link_to "Voltar", client_path(client_id: @client.id), class:"btn btn-primary" %></div>
+            <div class="m-1"><%= link_to "Editar", edit_client_animal_path(id: @animal.id), class:"btn btn-primary" %></div>
+            <div class="m-1"><%= link_to "Deletar", client_animal_path, data:{turbo_method: :delete,
+                                                        turbo_confirm: "Tem Certeza?" }, class:"btn btn-danger" %></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center"> 
+    <div class="card m-2 card-dark" style="width: 1250px;">
+        <div class="card-header">
+            <h3>Edite os Dados do Cliente</h2>
+        </div>
+        <%= form_with model: @client do |form| %>
+            <div class="card-body">
+                <div class="row mt-3">
+                    <div class="col">
+                        <%= form.text_field :name, placeholder: @client.name , class: "form-control" %>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <%= form.text_field :cpf, placeholder: @client.cpf , class: "form-control" %>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <%= form.text_field :adress, placeholder: @client.adress , class: "form-control" %>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <%= form.text_field :cep, placeholder: @client.cep , class: "form-control" %>
+                    </div>
+                    <div class="col">
+
+                        <%= form.number_field :house_n, placeholder: @client.house_n , class: "form-control" %>
+                    </div>
+                    <div class="col">
+                        <%= form.text_field :add_inf, placeholder: @client.add_inf , class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+                <div class="col d-flex justify-content-end">
+                    <div class="m-1"><%= link_to "Voltar", client_path, class:"btn btn-primary" %></div>
+                    <div class="m-1"><%= form.submit "Editar" , class:"btn btn-success" %></div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

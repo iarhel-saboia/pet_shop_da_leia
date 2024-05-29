@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center">
+    <div class="card card-dark m-2" style="width: 1250px;">
+        <div class="card-header text-bg-dark">
+            <div class="row">
+                <div class="col align-self-center"><h3>Nova Venda:</h2></div>
+                    <div class="col d-flex justify-content-end">
+                        <span class="d-flex justify-content-end"><div class="m-1"><%= link_to "Voltar", sales_path, class:"btn btn-primary" %></div></span>
+                    </div>
+            </div>
+        </div>
+        <%= form_with model: @sale do |form| %>
+            <div class="card-body">
+                <div class="card-body">
+                    <div class="row mt-3">
+                        <div class="col">
+                        <%= form.label :client_id, "Cliente" %>
+                        <%= form.collection_select :client_id, Client.all, :id, :name, { prompt: "Selecione um cliente" }, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                        <%= form.label :product_id, "Produto" %>
+                        <%= form.collection_select :product_id, Product.all, :id, :name, { prompt: "Selecione um produto" }, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                        <%= form.label :quantity, "Quantidade" %>
+                        <%= form.number_field :quantity, placeholder: "Quantidade", class: "form-control" %>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+                <div class="col d-flex justify-content-end">
+                    <%= form.submit "Vender", class: "btn btn-success" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

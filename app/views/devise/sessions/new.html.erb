@@ -1,0 +1,54 @@
+
+<body class="hold-transition login-page" style="min-height: 464.943px;">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-dark shadow">
+      <div class="card-header text-center">
+        <div class="row">
+          <i class="fa fa-solid fa-paw fa-beat"></i><h1><b>Pet Shop da Leia</b></h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Faça login para continuar</p>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="mb-3">
+                <div class="field">
+                  <%= f.label :email, "Email" %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                </div>
+            </div>
+            <div class="mb-3">
+              <div class="field">
+                <%= f.label :password, "Senha" %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+            </div>
+            <div class="row">
+              <!-- /.col -->
+              <div class="col-12 mb-2 actions">
+                <%= f.submit "Entrar", class:"btn btn-block text-bold", style:"background-color: #A4DDED" %>
+              </div>
+              <!-- /.col -->
+            </div>
+          <% end %>
+    
+        <p class="mb-1">
+          <%= link_to "Esqueci minha senha", edit_user_registration_path %>
+        </p>
+        <p class="mb-0">
+          <%= link_to "Criar nova conta", new_user_registration_path %>
+        </p>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
+</body>

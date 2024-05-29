@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-center">
+    <div class="card m-2 card-dark" style="width: 1250px;">
+        <div class="card-header">
+            <h3>Dados Pessoais:</h2>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col">
+                    <span>Nome: </span><%= @client.name %>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <span>CPF: </span><%= @client.cpf %>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <span>CEP: </span><%= @client.cep %>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <span>Endereço: </span><%= @client.adress %>
+                </div>
+                <div class="col">
+                    <span>Nº: </span><%= @client.house_n %>
+                </div>
+                <div class="col">
+                    <span>Complemento: </span><%= @client.add_inf %>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+            <div class="col d-flex justify-content-end">
+            <div class="m-1">
+                    <%= link_to "Voltar", clients_path, class:"btn btn-primary" %>
+                    <%= link_to "Editar", edit_client_path, class:"btn btn-primary" %>
+                    <%= link_to "Cadastrar Pet", new_client_animal_path(client_id: @client.id), class:"btn btn-success" %>
+                    <%= link_to "Deletar", client_path, data:{turbo_method: :delete,
+                                                                turbo_confirm: "Tem Certeza?" }, class:"btn btn-danger" %>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <% @client.animals.each do |animal| %>
+        <div class="card mt-3 m-5 card-dark" style="width: 750px;">
+            <div class="card-header">
+                <h3>Dados do Pet</h2>
+            </div>
+            <div class="card-body">
+                <div class="row mt-3">
+                    <div class="col">
+                        <span>Nome: </span><%= animal.name %>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <span>Raça: </span><%= animal.breed %>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <span>Idade: </span><%= animal.age %>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <span>Vacinas: </span><%= animal.vaccines %>
+                    </div>
+                    <div class="col">
+                        <span>Doenças: </span><%= animal.deseases %>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+                <div class="col d-flex justify-content-end">
+                    <div class="m-1"><%= link_to "Editar", edit_client_animal_path(client_id: @client.id, id: animal.id), class:"btn btn-primary" %></div>
+                    <div class="m-1"><%= link_to "Deletar", client_animal_path(client_id: @client.id, id: animal.id), data:{turbo_method: :delete,
+                                                                turbo_confirm: "Tem Certeza?" }, class:"btn btn-danger" %></div>    
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+

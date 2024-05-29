@@ -1,0 +1,67 @@
+<body class="hold-transition login-page" style="min-height: 464.943px;">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-dark shadow">
+      <div class="card-header text-center">
+        <div class="row">
+          <i class="fa fa-solid fa-paw fa-beat"></i><h1><b>Pet Shop da Leia</b></h1>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Recuperar senha</p>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="mb-2">
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <div class="mb-2">
+            <div class="field">
+              <%= f.label :password, "Senha" %> <small><i>(Se não quiser mudar, deixe em branco)</i></small><br />
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+              <% if @minimum_password_length %>
+                <em> Mínimo de <%= @minimum_password_length %> caracteres</em>
+              <% end %><br />
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <div class="field">
+              <%= f.label :password_confirmation, "Confirme sua senha" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :current_password, "Senha Atual" %> <small><i>(Para alterar, digite sua senha atual)</i></small><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+        
+          <div class="col-12 mt-3 mb-2 actions">
+            <%= f.submit "Alterar Senha", class:"btn btn-block text-bold", style:"background-color: #A4DDED" %>
+          </div>
+        <% end %>
+        <div class="d-flex justify-content-center mb-1 mt-4">
+          Instatisfeito?
+        </div>
+        <div class="mb-2">
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, 
+                                              method: :delete, class:" btn btn-danger btn-block text-bold"%> 
+        </div> 
+
+      <%= link_to "Voltar", :back, class:"btn btn-block text-bold" , style:"background-color: #A4DDED" %>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
+</body>
+
