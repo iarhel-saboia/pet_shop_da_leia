@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   end
   resources :products
   resources :sales
+  get 'download', to: 'sales#download_pdf', as: 'download_sales_pdf'
+  get 'preview', to: 'sales#preview_pdf', as: 'preview_sales_pdf'
 end

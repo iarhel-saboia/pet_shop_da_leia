@@ -51,6 +51,56 @@ class SalesController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def preview_pdf
+    sales = Sale.all
+    pdf = Prawn::Document.new
+    pdf.text "Titulozão", size: 40
+
+    pdf.text 'RELATÓRIO GERAL DE VENDAS', size: 30, style: :bold
+
+
+      sales = sales.map do |sale|
+        [
+          sale.client.name,
+          sale.product.name,
+          sale.quantity,
+          sale.total_value
+        ]
+      end
+
+      pdf.table [['Produto', 'Quantidade', 'Unidade', 'Valor Parcial']] + sales,
+                header: true,
+                column_widths: { 0 => 200, 1 => 100, 2 => 100, 3 => 100 },
+                cell_style: { border_width: 0.5 } do
+        row(0).style(font_style: :bold, background_color: 'CCCCCC')
+        columns(0..3).align = :center
+      end
+
+    send_data(pdf.render, filename:'teste_preview', type: 'application/pdf', disposition: 'inline')
+  end
+
+  def download_pdf
+    sales = Sale.all
+    pdf = Prawn::Document.new
+
+    pdf.text 'RELATÓRIO GERAL DE VENDAS', size: 30, style: :bold
+
+      pdf.text "Cliente: #{sales.client.name} | Produto: #{sales.product.name} | Quantidade: #{sales.quantity} | Valor: #{sales.total_value}" , style: :bold
+
+      sales.each do |sales|
+        [
+          sales.client.name,
+          sales.product.name,
+          sales.quantity,
+          sales.total_value
+        ]
+      end
+
+    send_data(pdf.render,
+              filename: 'vendas_geral.pdf',
+              type: 'application/pdf')
+  end
+
   private
     def sale_params
       params.require(:sale).permit(:client_id, :product_id, :quantity, :total_value)
