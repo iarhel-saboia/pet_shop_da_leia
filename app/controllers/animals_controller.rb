@@ -15,7 +15,7 @@ class AnimalsController < ApplicationController
 
   def create
     @client = Client.find_by(id: params[:client_id])
-    @animal = Animal.new(client_id: params[:client_id], name: params[:name], age: params[:age], breed: params[:breed], vaccines: params[:vaccines], deseases: params[:deseases])
+    @animal = Animal.new(animal_photo: params[:animal_photo], client_id: params[:client_id], name: params[:name], age: params[:age], breed: params[:breed], vaccines: params[:vaccines], deseases: params[:deseases])
 
     if @animal.save
       redirect_to @client
@@ -49,6 +49,6 @@ class AnimalsController < ApplicationController
 
   private
     def animal_params
-      params.require(:animal).permit(:client_id, :name, :age, :breed, :vaccines, :deseases)
+      params.require(:animal).permit(:client_id, :name, :age, :breed, :vaccines, :deseases, :animal_photo)
     end
 end

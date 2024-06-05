@@ -14,7 +14,7 @@
                 <% @products.each do |product| %>
                 <div class="col">
                     <div class="card" style="width: 16rem; max-height: 350px;">
-                        <%= image_tag("imagemração.jpg", class: "rounded align-self-center", height: 150, width: 150) %>
+                        <%= image_tag(product.product_photo, class: "rounded align-self-center", height: 150, width: 150) %>
                         <div class="card-body">
                             <h5 class="card-title"><%= product.name %></h5>
                             <p class="card-text">

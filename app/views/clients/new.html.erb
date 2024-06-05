@@ -7,6 +7,15 @@
             <div class="card-body">
                 <div class="row mt-3">
                     <div class="col">
+                        <div class="row mt-3">
+                            <div class="col">
+                                <%= form.file_field :client_photo %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
                         <%= form.text_field :name, placeholder: "Nome Completo" , class: "form-control" %>
                     </div>
                 </div>
