@@ -1,74 +1,73 @@
-<div class="d-flex justify-content-center mt-3">
-    <div class="card w-75 card-dark bg-transparent">
-        <div class="card-header justify-content-center">
-            <h3 class="d-flex justify-content-center">Bem Vindo Ao Pet Shop da Leia!</h3>
-        </div>
-        <div class="card-body">
-            <div class="row row-cols-1 row-cols-md-2 g-2">
-                <div class="col">
-                    <div class="card card-dark mb-3" style="max-width: 540px;">
-                        <%= link_to clients_path, class: "card-link", style: "text-decoration: none;" do %>
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <%= image_tag("Leia1.jpeg", class: "rounded", height: 150, width: 150) %>
+    <div class="d-flex justify-content-center mt-3">
+        <div class="card w-75 card-dark bg-transparent">
+            <div class="card-header justify-content-center">
+                <h3 class="d-flex justify-content-center">Bem Vindo Ao Pet Shop da Leia!</h3>
+            </div>
+            <div class="card-body">
+                <div class="row row-cols-1 row-cols-md-2 g-2">
+                    <div class="col">
+                        <div class="card card-dark mb-3" style="max-width: 540px;">
+                            <%= link_to clients_path, class: "card-link", style: "text-decoration: none;" do %>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <%= image_tag("Leia1.jpeg", class: "rounded", height: 150, width: 150) %>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Clientes</h5>
+                                        <p class="card-text">Aqui fica a lista dos humanos!</p>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Clientes</h5>
-                                    <p class="card-text">Aqui fica a lista dos humanos!</p>
-                                </div>
-                            </div>
-                        <% end %>
+                            <% end %>
+                        </div>
                     </div>
-                </div>
-                <div class="col">       
-                    <div class="card card-dark mb-3" style="max-width: 540px;">
-                        <%= link_to new_client_path, class: "card-link", style: "text-decoration: none;" do %>
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <%= image_tag("Leia2.jpeg", class: "rounded", height: 150, width: 150) %>
+                    <div class="col">       
+                        <div class="card card-dark mb-3" style="max-width: 540px;">
+                            <%= link_to new_client_path, class: "card-link", style: "text-decoration: none;" do %>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <%= image_tag("Leia2.jpeg", class: "rounded", height: 150, width: 150) %>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cadastro</h5>
+                                        <p class="card-text">Aqui é onde cadastramos todos!</p>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Cadastro</h5>
-                                    <p class="card-text">Aqui é onde cadastramos todos!</p>
-                                </div>
-                            </div>
-                        <% end %>
+                            <% end %>
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card card-dark mb-3" style="max-width: 540px;">
-                        <%= link_to products_path, class: "card-link", style: "text-decoration: none;" do %>
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <%= image_tag("Leia3.jpeg", class: "rounded", height: 150, width: 150) %>
+                    <div class="col">
+                        <div class="card card-dark mb-3" style="max-width: 540px;">
+                            <%= link_to products_path, class: "card-link", style: "text-decoration: none;" do %>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <%= image_tag("Leia3.jpeg", class: "rounded", height: 150, width: 150) %>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Produtos</h5>
+                                        <p class="card-text">Lista dos nossos produtos! Para os au-aus e miau-miaus!</p>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Produtos</h5>
-                                    <p class="card-text">Lista dos nossos produtos! Para os au-aus e miau-miaus!</p>
-                                </div>
-                            </div>
-                        <% end %>
+                            <% end %>
+                        </div>
                     </div>
-                </div>
-                <div class="col">   
-                    <div class="card card-dark mb-3" style="max-width: 540px;">
-                        <%= link_to sales_path, class: "card-link", style: "text-decoration: none;" do %>
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <%= image_tag("Leia4.jpeg", class: "rounded", height: 150, width: 150) %>
+                    <div class="col">   
+                        <div class="card card-dark mb-3" style="max-width: 540px;">
+                            <%= link_to sales_path, class: "card-link", style: "text-decoration: none;" do %>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <%= image_tag("Leia4.jpeg", class: "rounded", height: 150, width: 150) %>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vendas</h5>
+                                        <p class="card-text">Hmmm, onde o papai ganha dinheiro pra comprar minha raçãozinha!</p>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Vendas</h5>
-                                    <p class="card-text">Hmmm, onde o papai ganha dinheiro pra comprar minha raçãozinha!</p>
-                                </div>
-                            </div>
-                        <% end %>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer rounded-bottom" style="background-color:#BEBEBE">
+    </div>   
 
-        </div>
-    </div>
-</div>
+

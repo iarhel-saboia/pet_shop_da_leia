@@ -15,4 +15,10 @@
  */
 @import 'AdminLTE-3.2.0/dist/css/adminlte.min.css';
 @import 'AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css';
-@import 'home.scss'
+
+.containerleras{
+    background-image: url('#{asset-path("Leia10.jpeg")}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 30%;
+}
