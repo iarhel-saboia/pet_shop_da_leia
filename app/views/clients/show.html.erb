@@ -5,34 +5,40 @@
         </div>
         <div class="card-body">
             <div class="row mt-3">
-                <div class="col">
-                    <%= image_tag(@client.client_photo, style: 'width:200px;height:200px') %>
+                <div class="col-2">
+                    <%= image_tag(@client.client_photo, style: 'width:250px;height:230px') %>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <span>Nome: </span><%= @client.name %>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-12">
-                    <span>CPF: </span><%= @client.cpf %>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-12">
-                    <span>CEP: </span><%= @client.cep %>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <span>Endereço: </span><%= @client.adress %>
-                </div>
-                <div class="col">
-                    <span>Nº: </span><%= @client.house_n %>
-                </div>
-                <div class="col">
-                    <span>Complemento: </span><%= @client.add_inf %>
+                <div class="col ml-5">
+                    <div class="row-3">
+                        <div class="col">
+                            <span>Nome: </span><%= @client.name %>
+                        </div>
+                    </div>
+                    <div class="row-3 mt-3">
+                        <div class="col">
+                            <span>CPF: </span><%= @client.cpf %>
+                        </div>
+                    </div>
+                    <div class="row-3 mt-3">
+                        <div class="col">
+                            <span>CEP: </span><%= @client.cep %>
+                        </div>
+                    </div>
+                    <div class="d-inline-flex row-3 mt-3">
+                        <div class="col">
+                            <span>Endereço: </span><%= @client.adress %>
+                        </div>
+                    </div>
+                    <div class="row-3 mt-3">
+                        <div class="col-2">
+                            <span>Nº: </span><%= @client.house_n %>
+                        </div>
+                    </div>
+                    <div class="d-inline-flex row-3 mt-3">
+                        <div class="col">
+                            <span>Complemento: </span><%= @client.add_inf %>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,37 +57,41 @@
 </div>
 <div class="d-flex justify-content-center">
     <% @client.animals.each do |animal| %>
-        <div class="card mt-3 m-5 card-dark" style="width: 750px;">
+        <div class="card mt-3 m-5 card-dark" style="width: 950px;">
             <div class="card-header">
                 <h3>Dados do Pet</h2>
             </div>
             <div class="card-body">
-                <div class="row mt-3">
-                    <div class="col">
-                        <%= image_tag(animal.animal_photo, style: 'width:200px;height:200px') %>
+                <div class="d-flex align-items-center row mt-3">
+                    <div class="col-3">
+                        <%= image_tag(animal.animal_photo, style: 'width:250px;height:230px; margin-right: 20px;') %>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <span>Nome: </span><%= animal.name %>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <span>Raça: </span><%= animal.breed %>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <span>Idade: </span><%= animal.age %>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <span>Vacinas: </span><%= animal.vaccines %>
-                    </div>
-                    <div class="col">
-                        <span>Doenças: </span><%= animal.deseases %>
+                    <div class="col ml-4">
+                        <div class="row-3">
+                            <div class="col">
+                                <span>Nome: </span><%= animal.name %>
+                            </div>
+                        </div>
+                        <div class="row-3 mt-3">
+                            <div class="col">
+                                <span>Raça: </span><%= animal.breed %>
+                            </div>
+                        </div>
+                        <div class="row-3 mt-3">
+                            <div class="col">
+                                <span>Idade: </span><%= animal.age %>
+                            </div>
+                        </div>
+                        <div class="row-3 mt-3">
+                            <div class="col-6">
+                                <span>Vacinas: </span><%= animal.vaccines %>
+                            </div>
+                        </div>
+                        <div class="row-3 mt-3">
+                            <div class="col-6">
+                                <span>Doenças: </span><%= animal.deseases %>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
