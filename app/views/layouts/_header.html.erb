@@ -1,9 +1,22 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <div class="navbar-nav">
-            <div class="nav-item">
-                <i class="fas fa-dog fa-2x"></i>
-                <i class="fas fa-cat fa-2x"></i>
+            <div class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown">
+                    <i class="fas fa-solid fa-house-user fa-2x"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <% if user_signed_in? %>
+                        <li><span class="dropdown-header">Olá, <%= current_user.email %>!</span></li>
+                        <div class="dropdown-divider"></div>
+                        <li><%=link_to "Alterar Senha" , edit_user_registration_path, class:"dropdown-item" %></li>
+                        <li><%=link_to "Sair", destroy_user_session_path, data:{turbo_method: :delete,
+                                                    turbo_confirm: "Tem Certeza?" }, class:"dropdown-item" %></li>        
+                    <% else %>
+                        <li><%=link_to "Login" , new_user_session_path, class:"dropdown-item" %></li>
+                        <li><%=link_to 'Criar Conta', new_user_registration_path, class:"dropdown-item" %></li>
+                    <% end %>
+                </ul>
             </div>
         </div>
         <div class="navbar-nav">
@@ -34,22 +47,9 @@
             </li>
         </div>
         <ul class="navbar-nav">
-            <div class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown">
-                    <i class="fas fa-solid fa-house-user fa-2x"></i>
-                </a>
-                <ul class="dropdown-menu">
-                    <% if user_signed_in? %>
-                        <li><span class="dropdown-header">Olá, <%= current_user.email %>!</span></li>
-                        <div class="dropdown-divider"></div>
-                        <li><%=link_to "Alterar Senha" , edit_user_registration_path, class:"dropdown-item" %></li>
-                        <li><%=link_to "Sair", destroy_user_session_path, data:{turbo_method: :delete,
-                                                    turbo_confirm: "Tem Certeza?" }, class:"dropdown-item" %></li>        
-                    <% else %>
-                        <li><%=link_to "Login" , new_user_session_path, class:"dropdown-item" %></li>
-                        <li><%=link_to 'Criar Conta', new_user_registration_path, class:"dropdown-item" %></li>
-                    <% end %>
-                </ul>
+            <div class="nav-item">
+                <i class="fas fa-dog fa-2x"></i>
+                <i class="fas fa-cat fa-2x"></i>
             </div>
         </ul>
     </div>
