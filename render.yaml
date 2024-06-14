@@ -4,7 +4,7 @@ databases:
   databaseName: mysite_gl1u
   user: mysite
   plan: free
-  region: oregon
+  region: brazil
   ipAllowList:
   - source: 0.0.0.0/0
     description: everywhere
