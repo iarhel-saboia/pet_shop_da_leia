@@ -2,20 +2,30 @@
     <div class="container-fluid">
         <div class="navbar-nav">
             <div class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown">
+                <div class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-solid fa-house-user fa-2x"></i>
-                </a>
-                <ul class="dropdown-menu">
+                </div>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <% if user_signed_in? %>
                         <li><span class="dropdown-header">Olá, <%= current_user.email %>!</span></li>
-                        <div class="dropdown-divider"></div>
-                        <li><%=link_to "Alterar Senha" , edit_user_registration_path, class:"dropdown-item" %></li>
-                        <li><%=link_to "Sair", destroy_user_session_path, data:{turbo_method: :delete,
-                                                    turbo_confirm: "Tem Certeza?" }, class:"dropdown-item" %></li>        
-                    <% else %>
-                        <li><%=link_to "Login" , new_user_session_path, class:"dropdown-item" %></li>
-                        <li><%=link_to 'Criar Conta', new_user_registration_path, class:"dropdown-item" %></li>
-                    <% end %>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <%= link_to "Alterar Senha" , edit_user_registration_path, class: "dropdown-item" %>
+                        </li>
+                        <li>
+                            <%= link_to "Sair" , destroy_user_session_path, data: { turbo_method: :delete,
+                                turbo_confirm: "Tem Certeza?" }, class: "dropdown-item" %>
+                        </li>
+                        <% else %>
+                            <li>
+                                <%= link_to "Login" , new_user_session_path, class: "dropdown-item" %>
+                            </li>
+                            <li>
+                                <%= link_to 'Criar Conta' , new_user_registration_path, class: "dropdown-item" %>
+                            </li>
+                            <% end %>
                 </ul>
             </div>
         </div>
@@ -23,34 +33,34 @@
             <li class="nav-item">
                 <%= link_to root_path, class: "nav-link d-none d-sm-inline-block" do %>
                     <i class="fa fa-house-chimney fa-2x"></i>
-                <% end %>
+                    <% end %>
             </li>
             <li class="nav-item">
                 <%= link_to new_client_path, class: "nav-link d-none d-sm-inline-block" do %>
                     <i class="fas fa-pen-nib fa-2x"></i>
-                <% end %>
+                    <% end %>
             </li>
             <li class="nav-item">
                 <%= link_to clients_path, class: "nav-link d-none d-sm-inline-block" do %>
                     <i class="fas fa-user fa-2x"></i>
-                <% end %>
+                    <% end %>
             </li>
             <li class="nav-item">
                 <%= link_to products_path, class: "nav-link d-none d-sm-inline-block" do %>
                     <i class="fas fa-warehouse fa-2x"></i>
-                <% end %>
+                    <% end %>
             </li>
             <li class="nav-item">
                 <%= link_to sales_path, class: "nav-link d-none d-sm-inline-block" do %>
                     <i class="fas fa-book fa-2x"></i>
-                <% end %>
+                    <% end %>
             </li>
         </div>
-        <ul class="navbar-nav">
-            <div class="nav-item">
+        <div class="navbar-nav">
+            <li class="nav-item">
                 <i class="fas fa-dog fa-2x"></i>
                 <i class="fas fa-cat fa-2x"></i>
-            </div>
-        </ul>
+            </li>
+        </div>
     </div>
 </nav>
